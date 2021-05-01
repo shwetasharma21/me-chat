@@ -1,0 +1,48 @@
+.msg-container-main {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	overflow: hidden;
+}
+
+.msg-window {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	overflow-y: scroll;
+	margin: 0.1rem;
+}
+
+.msg-bubble {
+	background-color: rgb(209, 209, 209);
+	border: 1px solid black;
+	padding: 0.5rem;
+	border-radius: 1rem;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+	overflow-wrap: break-word;
+}
+
+.msg-input-container {
+	display: flex;
+	flex: 0 1 auto;
+	align-items: center;
+}
+
+.msg-input-box {
+	padding: 1rem;
+	height: 1rem;
+	flex: 1 1 auto;
+	margin: 0.2rem;
+}
+
+.msg-send {
+	height: 3rem;
+	margin-right: 0.5rem;
+	cursor: pointer;
+	border: 1px solid gray;
+}
+
+.msg-send:active {
+	transform: translateX(2px);
+}
