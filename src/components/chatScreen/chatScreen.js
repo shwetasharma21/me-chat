@@ -85,7 +85,7 @@ class ChatScreen extends Component {
 							<h2
 								className={`msg-bubble ${
 									msg.isMine ? "bubble-float-right" : ""
-								}`}
+								} ${this.props.isDayMode ? "" : " dark"}`}
 							>
 								{msg.text}
 							</h2>
@@ -96,16 +96,25 @@ class ChatScreen extends Component {
 					<input
 						ref={this.state.msgBoxRef}
 						type="text"
-						className="msg-input-box"
+						className={
+							"msg-input-box" +
+							(this.props.isDayMode ? "" : " dark")
+						}
 						placeholder="Enter message"
 						value={this.state.msgTxt}
 						onChange={this.onMsgTxtChange}
 						onKeyPress={this.handleKeyPress}
 					/>
 					<img
-						src="icon-send-message.png"
+						src={
+							this.props.isDayMode
+								? "send_msg.png"
+								: "send_msg_dark.png"
+						}
 						alt=""
-						className="msg-send"
+						className={
+							"msg-send" + (this.props.isDayMode ? "" : " dark")
+						}
 						onClick={(e) =>
 							this.state.msgTxt === ""
 								? e.preventDefault()

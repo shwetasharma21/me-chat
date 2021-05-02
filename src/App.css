@@ -10,3 +10,7 @@
 	flex: 1 1 auto;
 	overflow-y: hidden;
 }
+
+.container-main.dark {
+	background-color: black;
+}

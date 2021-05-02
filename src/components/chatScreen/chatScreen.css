@@ -42,6 +42,7 @@
 	height: 1rem;
 	flex: 1 1 auto;
 	margin: 0.2rem;
+	margin-left: 0rem;
 }
 
 .msg-send {
@@ -49,8 +50,25 @@
 	margin-right: 0.5rem;
 	cursor: pointer;
 	border: 1px solid #808080;
+	border-radius: 0.5rem;
 }
 
 .msg-send:active {
 	transform: translateX(2px);
+}
+
+.msg-bubble.dark {
+	background-color: #000000;
+	border-color: #ffffff;
+	color: #ffffff;
+}
+
+.msg-send.dark {
+	background-color: #000000;
+	border-color: #ffffff;
+}
+
+.msg-input-box.dark {
+	background-color: #000000;
+	color: #ffffff;
 }
