@@ -32,6 +32,10 @@ class ChatScreen extends Component {
 			//socket.emit("to-server", "Hello..!");
 		});
 
+		socket.on("disconnect", () => {
+			toast.error("Disconnected from server..!");
+		});
+
 		socket.on("to-client", (data) => {
 			console.log(data);
 			if (data.id !== this.state.id) {
@@ -51,18 +55,19 @@ class ChatScreen extends Component {
 	};
 	sendMsg = () => {
 		const { msgTxt, id } = this.state;
-		if (msgTxt === "") return toast.warn("Cannot send empty message");
+		if (msgTxt === "") return;
 
-		this.addMsgToChat(msgTxt);
+		this.addMsgToChat(msgTxt, true);
 
 		this.socket.emit("to-server", { id, msgTxt });
 	};
-	addMsgToChat = (msg) => {
+	addMsgToChat = (msg, isMine = false) => {
 		const { counter } = this.state;
 
 		this.state.messages.push({
 			id: counter,
 			text: msg,
+			isMine,
 		});
 
 		this.setState({ msgTxt: "", counter: counter + 1 }, () => {
@@ -76,9 +81,15 @@ class ChatScreen extends Component {
 			<div className="msg-container-main">
 				<div ref={this.state.msgChatRef} className="msg-window">
 					{this.state.messages.map((msg) => (
-						<h2 className="msg-bubble" key={msg.id}>
-							{msg.text}
-						</h2>
+						<div key={msg.id}>
+							<h2
+								className={`msg-bubble ${
+									msg.isMine ? "bubble-float-right" : ""
+								}`}
+							>
+								{msg.text}
+							</h2>
+						</div>
 					))}
 				</div>
 				<div className="msg-input-container">

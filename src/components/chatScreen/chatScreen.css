@@ -14,13 +14,21 @@
 }
 
 .msg-bubble {
-	background-color: rgb(209, 209, 209);
-	border: 1px solid black;
+	background-color: #a0beeb;
+	border: 1px solid #000000;
 	padding: 0.5rem;
 	border-radius: 1rem;
 	margin-top: 0;
 	margin-bottom: 0.5rem;
 	overflow-wrap: break-word;
+	max-width: 60%;
+	width: fit-content;
+}
+
+.bubble-float-right {
+	float: right;
+	background-color: #fa8072;
+	margin-right: 0.5rem;
 }
 
 .msg-input-container {
@@ -40,7 +48,7 @@
 	height: 3rem;
 	margin-right: 0.5rem;
 	cursor: pointer;
-	border: 1px solid gray;
+	border: 1px solid #808080;
 }
 
 .msg-send:active {
