@@ -43,6 +43,12 @@ class ChatScreen extends Component {
 		const msgTxt = event.target.value;
 		this.setState({ msgTxt });
 	};
+	handleKeyPress = (event) => {
+		const key = event.key;
+		if (key === "Enter") {
+			this.sendMsg();
+		}
+	};
 	sendMsg = () => {
 		const { msgTxt, id } = this.state;
 		if (msgTxt === "") return toast.warn("Cannot send empty message");
@@ -83,6 +89,7 @@ class ChatScreen extends Component {
 						placeholder="Enter message"
 						value={this.state.msgTxt}
 						onChange={this.onMsgTxtChange}
+						onKeyPress={this.handleKeyPress}
 					/>
 					<img
 						src="icon-send-message.png"
